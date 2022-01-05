@@ -1,11 +1,11 @@
 import styled from "styled-components"
 
 export const ContainerGeral = styled.div`
-display:flex;
-background-image: url("https://thumbs.gfycat.com/ScrawnyUnsungAmoeba-size_restricted.gif");
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding:70px;
+    display:flex;
+    background-image: url("https://thumbs.gfycat.com/ScrawnyUnsungAmoeba-size_restricted.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding:70px;
 
 .imagens{
 }  
