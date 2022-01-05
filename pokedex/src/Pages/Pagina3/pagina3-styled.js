@@ -7,10 +7,10 @@ background-image: url("https://thumbs.gfycat.com/ScrawnyUnsungAmoeba-size_restri
   background-size: cover;
   padding:70px;
 
-.imagens{
-}  
+
 .image1{
     display:flex;
+    flex-direction: row;
     background-color: rgba(43,124,42, 0.7);
     width: 250px;
     height: 250px;
@@ -30,14 +30,13 @@ background-image: url("https://thumbs.gfycat.com/ScrawnyUnsungAmoeba-size_restri
     box-shadow:7px 7px rgba(43,124,42, 0.7);
 }
 
-.containerDeEstatisticas{
-
-}
 .containerImagensEEstatisticas{
     display: flex;
-    justify-content: flex-start;     
+    justify-content: center; 
+    align-items: center ;
     flex-wrap: wrap;
-     
+
+}
 .estatisticas{
     background-color: rgba(43,124,42, 0.7);
     width: 250px;
