@@ -1,24 +1,21 @@
 import react from "react";
-import { ContainerGeral } from "./paginaErro-styled";
+import { ContainerGeral, ContainerErro, CardErro, TextoErro, Piadinha } from "./paginaErro-styled";
 
 const PaginaErro = () => {
 
     return(
 
-        <ContainerGeral>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>  
-            <br></br>
-            <br></br>
-            <br></br>
-            <div className="ContainerErro">
-                <div className="CardErro">
-                    <p className="textoErro">Algo de Errado não está certo ! ! !</p>
-                    <p className="piadinha">Ao persistirem os sintomas reclame com seu dev...:)</p>
-                </div>
-            </div>
+        <ContainerGeral>           
+            <ContainerErro>
+                <CardErro>
+                    <TextoErro>
+                        <p>Algo de Errado não está certo ! ! !</p>
+                    </TextoErro>
+                    <Piadinha>
+                        <p>Ao persistirem os sintomas reclame com seu dev...:)</p>
+                    </Piadinha>
+                </CardErro>
+            </ContainerErro>
         </ContainerGeral>
     )
 

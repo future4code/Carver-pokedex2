@@ -1,6 +1,4 @@
-import react from "react";
-import styled from "styled-components";
-import { ContainerGeral } from "./pagina3-styled";
+import { ContainerGeral, Imagens, Image1, Image2, ContainerImagensEEstatisticas, Estatisticas, Modelos, ContainerModelo, Movimentos } from "./pagina3-styled";
 
 
 
@@ -9,31 +7,31 @@ const Pagina3 = () => {
 
     return(
         <ContainerGeral>
-            <div className="containerImagensEEstatisticas">
-                <div className="imagens">
-                    <div className="image1">
+            <ContainerImagensEEstatisticas>
+                <Imagens>
+                    <Image1>
                         <h2>Imagem 1</h2>
-                    </div>
+                    </Image1>
 
-                    <div className="image2">
+                    <Image2>
                         <h2>Image 2</h2>
-                    </div>            
-                </div>
-                <div className="containerDeEstatisticas">
-                    <div className="estatisticas">
+                    </Image2>            
+                </Imagens>
+                <ContainerImagensEEstatisticas>
+                    <Estatisticas>
                         <h2>Estatisticas</h2>
-                    </div>
-                </div>
+                    </Estatisticas>
+                </ContainerImagensEEstatisticas>
             
-            <div className="containerModelo">
-                <div className="modelos">
+            <ContainerModelo>
+                <Modelos>
                     <h2>Modelo</h2>
-                </div>
-                <div className="movimentos">
+                </Modelos>
+                <Movimentos>
                     <h2>Movimentos</h2>
-                </div>
-            </div>
-            </div>
+                </Movimentos>
+            </ContainerModelo>
+            </ContainerImagensEEstatisticas>
         </ContainerGeral>
     )
 }

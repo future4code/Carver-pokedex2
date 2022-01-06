@@ -7,8 +7,10 @@ export const ContainerGeral = styled.div`
     background-size: cover;
     padding:70px;
 
-
-.image1{
+`
+export const Imagens = styled.div`
+`
+export const Image1 = styled.div`
     display:flex;
     flex-direction: row;
     background-color: rgba(43,124,42, 0.7);
@@ -18,8 +20,8 @@ export const ContainerGeral = styled.div`
     border:7px solid rgb(177,80,12);
     border-radius: 10px ;
     box-shadow:7px 7px rgba(43,124,42, 0.7);
-}
-.image2{
+`
+export const Image2 = styled.div`
     display:flex;
     background-color: rgba(43,124,42, 0.7);
     width: 250px;
@@ -28,16 +30,16 @@ export const ContainerGeral = styled.div`
     border:7px solid rgb(177,80,12);
     border-radius: 10px ;
     box-shadow:7px 7px rgba(43,124,42, 0.7);
-}
+`
 
-.containerImagensEEstatisticas{
+export const ContainerImagensEEstatisticas = styled.div`
     display: flex;
     justify-content: center; 
     align-items: center ;
     flex-wrap: wrap;
 
-}
-.estatisticas{
+`
+export const Estatisticas = styled.div`
     background-color: rgba(43,124,42, 0.7);
     width: 250px;
     height: 534px;
@@ -45,8 +47,11 @@ export const ContainerGeral = styled.div`
     border:7px solid rgb(177,80,12);
     border-radius: 10px ;
     box-shadow:7px 7px rgba(43,124,42, 0.7);
+    :hover{
+    background-color: rgba(69,160,44, 0.5);
 }
-.modelos{
+`
+export const Modelos = styled.div`
     background-color: rgba(43,124,42, 0.7);
     width: 500px;
     height: 60px;
@@ -54,10 +59,14 @@ export const ContainerGeral = styled.div`
     border:7px solid rgb(177,80,12);
     border-radius: 10px ;
     box-shadow:7px 7px rgba(43,124,42, 0.7);
+    :hover{
+    background-color: rgba(69,160,44, 0.5);
 }
-.containerModelo{
-}
-.movimentos{
+`
+export const ContainerModelo = styled.div`
+`
+
+export const Movimentos = styled.div`
     background-color: rgba(43,124,42, 0.7);
     width: 500px;
     height: 440px;
@@ -65,18 +74,9 @@ export const ContainerGeral = styled.div`
     border:7px solid rgb(177,80,12);
     border-radius: 10px ;
     box-shadow:7px 7px rgba(43,124,42, 0.7);
-}
-.estatisticas:hover{
+    :hover{
     background-color: rgba(69,160,44, 0.5);
 }
+`
 
-.modelos:hover{
-    background-color: rgba(69,160,44, 0.5);
-}
-
-.movimentos:hover{
-    background-color: rgba(69,160,44, 0.5);
-}
-
-
-` 
+ 
