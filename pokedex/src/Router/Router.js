@@ -1,8 +1,10 @@
 import react from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Header from '../Header/header';
+import Home from '../Pages/Home/Home';
 import Pagina3 from '../Pages/Pagina3/pagina3';
 import PaginaErro from '../Pages/paginaErro/paginaErro';
+import Pokedex from '../Pages/Pokedex/Pokedex';
 
     const Router = () => {  
   
@@ -12,14 +14,12 @@ import PaginaErro from '../Pages/paginaErro/paginaErro';
           <Header/>
               <Switch>
   
-                  <Route exact path={"/"}> 
-                    {/* <Page1/>-------------------------------Adicionar */}
-                    <Pagina3/>
+                  <Route exact path={"/"}>                     
+                    <Home/>
                   </Route>
   
                   <Route exact path={"/pokedex"}>
-                    {/* <Page2/>--------------------------------Adicionar */}
-                    <Pagina3/>
+                    <Pokedex/>
                   </Route>
   
                   <Route exact path={"/informacoesPokemon"}>
