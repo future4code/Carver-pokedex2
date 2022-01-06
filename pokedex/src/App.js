@@ -5,13 +5,14 @@ import Header from './Header/header';
 import Router from './Router/Router';
 import Home from './Pages/Home/Home';
 import Pokedex from './Pages/Pokedex/Pokedex';
+import GlobalState from './Context/GlobalContext/GlobalState';
 
 
 function App() {
   return (
-    <div className="App">
+    <GlobalState>
       <Router/>
-    </div>
+    </GlobalState>
   );
 }
 
