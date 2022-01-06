@@ -29,8 +29,10 @@ export default function Home() {
                 numberCards.push(i+1)
             }
 
-            return numberCards.map((number) => {
-                return <a onClick={()=> setters.setUrl(PAGINATION_URL + (number-1)*20 + '&offset=20')}>{number}</a>
+
+            return numberCards.map((number,index) => {
+                return <a key={index} onClick={()=> setUrl(PAGINATION_URL + number*20 + '&offset=20')}>{number}</a>
+
             })
         }
     }
