@@ -8,7 +8,7 @@ export const HomeContainer = styled.section`
     min-height: 100vh;
     a{
         cursor: pointer;
-        color: #fff;
+        color: black;
         font-weight: 700;
 
         & :target, :hover{

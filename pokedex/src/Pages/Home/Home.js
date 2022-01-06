@@ -1,61 +1,59 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import Card from '../../Components/Card/Card'
 import { BASE_URL, PAGINATION_URL } from '../../services/util'
 import { getPokemons } from '../../services/services'
 import { CardPokemonArea, HomeContainer, PaginationArea } from './style.css'
+import { GlobalStateContext } from '../../Context/GlobalContext/GlobalStateContext'
 
 export default function Home() {
-
-    const [pokemons, setPokemons] = useState([])
-    const [url, setUrl] = useState(BASE_URL)
+    const {states,setters, requests} = useContext(GlobalStateContext)
+    // const [pokemons, setPokemons] = useState([])
+    // const [url, setUrl] = useState(BASE_URL)
 
 
     useEffect(() => {
-       const request = getPokemons(url)
-       request.then((res)=>{
-           console.log(res)
-           setPokemons(res)
-       }) 
-        
-    }, [url])
+        requests.getPokemonsFromAPI()        
+    }, [states.url])
 
     const loadCards = () => {
-        return pokemons.results.map((pokemon,index) => {
+        return states.pokemons.results.map((pokemon,index) => {
             return <Card key={index} pokemon={pokemon}/>
         })
     }
 
     const paginationCard = () => {
-        if(pokemons.results){
-            const numberOfPage = Math.round(pokemons.count/pokemons.results.length) 
+        if(states.pokemons.results){
+            const numberOfPage = Math.round(states.pokemons.count/20) 
             const numberCards = []
-            for(let i = 1; i<=numberOfPage; i++){
-                numberCards.push(i)
+            for(let i = 0; i<numberOfPage; i++){
+                numberCards.push(i+1)
             }
+
 
             return numberCards.map((number,index) => {
                 return <a key={index} onClick={()=> setUrl(PAGINATION_URL + number*20 + '&offset=20')}>{number}</a>
+
             })
         }
     }
 
     const nextPage = () => {
-        setUrl(pokemons.next)
+        setters.setUrl(states.pokemons.next)
     }
 
     const previousPage = () => {
-        setUrl(pokemons.previous)
+        setters.setUrl(states.pokemons.previous)
     }
     
     return (
         <HomeContainer>
             <CardPokemonArea>
-                {pokemons!= 0? loadCards(): <h1>loading</h1>}
+                {states.pokemons!= 0? loadCards(): <h1>loading</h1>}
             </CardPokemonArea>
             <PaginationArea>
                 {paginationCard()}
             </PaginationArea>
-            {pokemons.previous ? <button onClick={previousPage}>anterior</button> : <></>}
+            {states.pokemons.previous ? <button onClick={previousPage}>anterior</button> : <></>}
             <button onClick={nextPage}>Proximo</button>
         </HomeContainer>
     )

@@ -10,22 +10,3 @@ export const getPokemons = async (url) => {
         alert(err.message)
     }
 }
-
-
-// export const getServicos = async () => {
-
-//     try {
-//         const url = baseUrl + "jobs"
-//         const request = await axios.get(url, {
-//             headers: {
-//                 "Authorization": key
-//             }
-//         })
-
-
-//         return request.data.jobs
-
-//     } catch (err) {
-//         console.log(err.message)
-//     }
-// }
