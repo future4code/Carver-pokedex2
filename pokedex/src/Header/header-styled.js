@@ -6,23 +6,24 @@ background-color:red;
 width: 100%;
 height: 90px;
 
+display: grid;
+grid-template-columns: repeat(3,1fr);
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+justify-items: center;
 
-.container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+div{
+    width: 27%;
 }
-.item1{
-    margin: 30px;
-    
-    
-}
-.item2{
-    
-}
-.item3{
-    margin: 30px;
 
+img{
+    width: 100%;
+    cursor: pointer;
+}
+
+button{
+    width: 20%;
 }
 
 

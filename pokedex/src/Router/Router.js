@@ -22,7 +22,7 @@ import Pokedex from '../Pages/Pokedex/Pokedex';
                     <Pokedex/>
                   </Route>
   
-                  <Route exact path={"/informacoesPokemon"}>
+                  <Route exact path={"/informacoesPokemon:id"}>
                     <Pagina3/>
                   </Route>                
   
