@@ -1,23 +1,36 @@
 import React, { useState, useContext, useEffect } from 'react'
 import Card from '../../Components/Card/Card'
-import { BASE_URL, PAGINATION_URL } from '../../services/util'
-import { getPokemons } from '../../services/services'
+import {PAGINATION_URL } from '../../services/util'
 import { CardPokemonArea, HomeContainer, PaginationArea } from './style.css'
 import { GlobalStateContext } from '../../Context/GlobalContext/GlobalStateContext'
 
 export default function Home() {
     const {states,setters, requests} = useContext(GlobalStateContext)
-    // const [pokemons, setPokemons] = useState([])
-    // const [url, setUrl] = useState(BASE_URL)
 
 
     useEffect(() => {
-        requests.getPokemonsFromAPI()        
+        if(states.pokedex.length !== 0){
+            let pokemonsToNotRemove = states.pokemons;
+            states.pokedex.forEach(poke => {
+                pokemonsToNotRemove.results = states.pokemons.results.map(pokemon => {
+                    if(poke.name === pokemon.name){
+                        pokemon = {...pokemon, isInPokedex:true}
+                    }
+                    return pokemon
+                })
+            });
+            setters.setPokemons(pokemonsToNotRemove)
+        }else{
+            requests.getPokemonsFromAPI()
+        }
+        
     }, [states.url])
-
+    
     const loadCards = () => {
         return states.pokemons.results.map((pokemon,index) => {
-            return <Card key={index} pokemon={pokemon}/>
+            if(pokemon.isInPokedex === false){
+                return <Card key={index} pokemon={pokemon} pokedex={states.pokedex}  setPokedex={addPokemon} setDetails={setters.setDetails} buttonText='Adcionar'/>
+            }
         })
     }
 
@@ -31,7 +44,7 @@ export default function Home() {
 
 
             return numberCards.map((number,index) => {
-                return <a key={index} onClick={()=> setUrl(PAGINATION_URL + number*20 + '&offset=20')}>{number}</a>
+                return <a key={index} onClick={()=> setters.setUrl(PAGINATION_URL + number*20 + '&offset=20')}>{number}</a>
 
             })
         }
@@ -44,11 +57,23 @@ export default function Home() {
     const previousPage = () => {
         setters.setUrl(states.pokemons.previous)
     }
+
+    const addPokemon = (catchedPokemon) =>{
+        setters.setPokedex([...states.pokedex, catchedPokemon])
+        let pokemonsToNotRemove = states.pokemons;
+        pokemonsToNotRemove.results = states.pokemons.results.map(pokemon => {
+            if(catchedPokemon.name === pokemon.name){
+                pokemon = {...pokemon, isInPokedex:true}
+            }
+            return pokemon
+        })
+        setters.setPokemons(pokemonsToNotRemove)
+    }
     
     return (
         <HomeContainer>
             <CardPokemonArea>
-                {states.pokemons!= 0? loadCards(): <h1>loading</h1>}
+                {states.pokemons.length !== 0? loadCards(): <h1>loading</h1>}
             </CardPokemonArea>
             <PaginationArea>
                 {paginationCard()}

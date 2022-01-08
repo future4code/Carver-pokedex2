@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const ContainerGeral = styled.div`
     display:flex;
-    background-image: url("https://thumbs.gfycat.com/ScrawnyUnsungAmoeba-size_restricted.gif");
+    /* background-image: url("https://thumbs.gfycat.com/ScrawnyUnsungAmoeba-size_restricted.gif"); */
     background-repeat: no-repeat;
     background-size: cover;
     padding:70px;
@@ -74,9 +74,10 @@ export const Movimentos = styled.div`
     border:7px solid rgb(177,80,12);
     border-radius: 10px ;
     box-shadow:7px 7px rgba(43,124,42, 0.7);
+    overflow-x: hidden;
     :hover{
-    background-color: rgba(69,160,44, 0.5);
-}
+        background-color: rgba(69,160,44, 0.5);
+    }
 `
 
  

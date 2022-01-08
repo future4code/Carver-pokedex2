@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const PokedexContainer = styled.section`
-    background-image: url("https://thumbs.gfycat.com/ScrawnyUnsungAmoeba-size_restricted.gif");
+    // background-image: url("https://thumbs.gfycat.com/ScrawnyUnsungAmoeba-size_restricted.gif");
     background-repeat: no-repeat;
     background-size: cover;
     padding:70px;

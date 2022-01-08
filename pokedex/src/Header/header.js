@@ -1,23 +1,22 @@
 import react from "react";
+import { useHistory, useLocation  } from "react-router-dom/cjs/react-router-dom.min";
 import styled from "styled-components";
+import { gotoHome, goToPokedex, } from "../Router/coordinates";
 import { ContainerGeral } from "./header-styled";
-
+    
 const Header = () => {
+    const history = useHistory()
+    const location = useLocation()
     return(
         <ContainerGeral>
-            <div className="container">
-                <div className="item1">
-                    <h2>Item 1</h2>
+                {
+                    location.pathname === '/pokedex'
+                    ?<button onClick={() => history.goBack()} >voltar</button>
+                    : <button onClick={() => goToPokedex(history)} >Pokedex</button>
+                }
+                <div>
+                    <img src="https://www.pikpng.com/pngl/b/176-1765284_great-20-pokemon-png-logo-for-free-download.png" onClick={() => gotoHome(history)}/>
                 </div>
-
-                <div className="item2">
-                    <h1>Esse é o header</h1>
-                </div>
-
-                <div className="item3">
-                    <h2>Item 2</h2>
-                </div>
-            </div>
         </ContainerGeral>
     )
 }

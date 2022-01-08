@@ -6,12 +6,17 @@ import { GlobalStateContext } from './GlobalStateContext';
 export default function GlobalState(props) {
     const [pokemons, setPokemons] = useState([]);
     const [pokedex, setPokedex] = useState([]);
+    const [details, setDetails] = useState([])
     const [url, setUrl] = useState(BASE_URL)
 
     const getPokemonsFromAPI = () => {
         getPokemons(url)
             .then((res)=>{
-                setPokemons(res)
+                let pokemons = res
+                pokemons.results = res.results.map(pokemon=>{
+                    return{...pokemon, isInPokedex:false}
+                })
+                setPokemons(pokemons)
             })
     }
     
@@ -21,8 +26,8 @@ export default function GlobalState(props) {
                 setPokedex(res)
             })
     }
-    const states = {pokemons, pokedex,url}
-    const setters = {setPokemons,setPokedex,setUrl}
+    const states = {pokemons, pokedex,url,details}
+    const setters = {setPokemons,setPokedex,setUrl,setDetails}
     const requests = {getPokemonsFromAPI, getDetails}
 
     return (
