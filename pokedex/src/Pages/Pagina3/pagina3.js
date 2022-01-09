@@ -2,14 +2,14 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { GlobalStateContext } from "../../Context/GlobalContext/GlobalStateContext";
 import {
+  Nome,
+  ContainerNome,
   ContainerGeral,
+  ContainerCompleto,
   Imagens,
   Image1,
   Image2,
-  ContainerImagensEEstatisticas,
   Estatisticas,
-  Modelos,
-  ContainerModelo,
   Movimentos,
 } from "./pagina3-styled";
 
@@ -35,40 +35,38 @@ const Pagina3 = () => {
         })
       return (
         <>
-          <ContainerImagensEEstatisticas>
-            <Imagens>
-              <Image1>
-                <img src={pokemon.sprites.front_default} />
-              </Image1>
-
-              <Image2>
-                <img src={pokemon.sprites.back_default} />
-              </Image2>
-            </Imagens>
-            <ContainerImagensEEstatisticas>
-              <Estatisticas>
-                <h2>Estatisticas</h2>
+        
+          <ContainerGeral>
+            <ContainerCompleto>
+              <ContainerNome>
+                  <Nome>
+                    <h2>{pokemon.name.toUpperCase()}</h2>
+                  </Nome>
+                </ContainerNome>
+                <Imagens>
+                    <Image1>
+                    <img src={pokemon.sprites.front_default} />
+                    </Image1>
+                    <Image2>
+                    <img src={pokemon.sprites.back_default} />
+                    </Image2>
+                </Imagens>
+                    <Estatisticas>
+                        <h2>Estatisticas</h2>
                 <h4><strong>HP:</strong>{pokemon.stats[0].base_stat}</h4>
                 <h4><strong>ataque:</strong>{pokemon.stats[1].base_stat}</h4>
                 <h4><strong>defesa:</strong>{pokemon.stats[2].base_stat}</h4>
                 <h4><strong>Ataque-Especial:</strong>{pokemon.stats[0].base_stat}</h4>
                 <h4><strong>Defesa-Especial:</strong>{pokemon.stats[0].base_stat}</h4>
                 <h4><strong>Speed</strong>{pokemon.stats[0].base_stat}</h4>
-              </Estatisticas>
-            </ContainerImagensEEstatisticas>
-
-            <ContainerModelo>
-              <Modelos>
-                <h2>Tipos</h2>
-                <h4>{pokemon.types[0].type.name}</h4>
-                <h4>{pokemon.types[1].type.name}</h4>
-              </Modelos>
-              <Movimentos>
+                    </Estatisticas>
+                <Movimentos>
                 <h2>Ataques</h2>
                 {moves}
-              </Movimentos>
-            </ContainerModelo>
-          </ContainerImagensEEstatisticas>
+                </Movimentos>
+            </ContainerCompleto>
+        </ContainerGeral>
+        
         </>
       );
     }

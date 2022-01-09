@@ -18,7 +18,6 @@ div{
 }
 
 img{
-    width: 100%;
     cursor: pointer;
 }
 
@@ -26,5 +25,20 @@ button{
     width: 20%;
 }
 
+`
 
+export const ImgButton = styled.img`
+    width: 50%;
+    
+`
+
+export const Logo = styled.img`
+    width: 100%;
+`
+
+export const ConteinerButton = styled.div`
+      display:flex;  
+      flex-direction:row;  
+      color:white;   
+      font-size: 20px;
 `

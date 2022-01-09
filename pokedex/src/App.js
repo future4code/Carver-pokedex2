@@ -1,18 +1,14 @@
-
-import './App.css';
-import Pagina3 from './Pages/Pagina3/pagina3';
-import Header from './Header/header';
 import Router from './Router/Router';
-import Home from './Pages/Home/Home';
-import Pokedex from './Pages/Pokedex/Pokedex';
 import GlobalState from './Context/GlobalContext/GlobalState';
-
+import { AppDiv } from './App-styled';
 
 function App() {
   return (
-    <GlobalState>
-      <Router/>
-    </GlobalState>
+    <AppDiv>
+      <GlobalState>
+        <Router/>
+      </GlobalState>
+    </AppDiv>
   );
 }
 
