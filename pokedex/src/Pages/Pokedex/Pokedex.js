@@ -7,14 +7,11 @@ export default function Pokedex() {
     const {states, setters, request} = useContext(GlobalStateContext)
     const [pokemons, setPokemons] = useState([])    
     useEffect(() => {
-        if(states.pokedex.length !== 0){
-            setPokemons(states.pokedex)
-        }
+        
     }, [states.pokedex])
 
     const removePokemons = (removedPokemon) => {
         let filteredPokemons = states.pokedex.filter(pokemon=>{
-            console.log(pokemon, removedPokemon)
             return pokemon.name !== removedPokemon.name
         })
         let pokemonsToRemove = states.pokemons 
@@ -26,8 +23,6 @@ export default function Pokedex() {
 
             return pokemon
         })
-
-        console.log(filteredPokemons)
         setters.setPokemons(pokemonsToRemove)
         setters.setPokedex(filteredPokemons)
     }

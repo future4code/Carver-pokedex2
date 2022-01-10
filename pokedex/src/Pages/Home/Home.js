@@ -1,7 +1,7 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Card from '../../Components/Card/Card'
 import {PAGINATION_URL } from '../../services/util'
-import { CardPokemonArea, HomeContainer, PaginationArea } from './style.css'
+import { ButtonArea, CardPokemonArea, HomeContainer, PaginationArea } from './style.css'
 import { GlobalStateContext } from '../../Context/GlobalContext/GlobalStateContext'
 
 export default function Home() {
@@ -75,11 +75,13 @@ export default function Home() {
             <CardPokemonArea>
                 {states.pokemons.length !== 0? loadCards(): <h1>loading</h1>}
             </CardPokemonArea>
-            <PaginationArea>
-                {paginationCard()}
-            </PaginationArea>
-            {states.pokemons.previous ? <button onClick={previousPage}>anterior</button> : <></>}
-            <button onClick={nextPage}>Proximo</button>
+            <ButtonArea>
+                {states.pokemons.previous ? <img src='https://cdn-icons-png.flaticon.com/512/271/271220.png' onClick={previousPage} /> : <></>}
+                <PaginationArea>
+                    {paginationCard()}
+                </PaginationArea>
+                <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' onClick={nextPage} />
+            </ButtonArea>
         </HomeContainer>
     )
 }
