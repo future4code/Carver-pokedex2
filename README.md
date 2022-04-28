@@ -1,6 +1,3 @@
-<h1> pokedex2 <h1>
-
-# Getting Started with Create React App
 ### Pokedex
 
 ### O que funciona
